@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venice Don - Creative Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-logo">Venice Don.</div>
+        <div class="nav-links">
+            <a href="#work" class="nav-link">Work</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-cta">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            <button class="btn-nav">Let's Talk</button>
+        </div>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#work" class="mobile-menu-link">Work</a>
+        <a href="#about" class="mobile-menu-link">About</a>
+        <a href="#contact" class="mobile-menu-link">Get In Touch</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Available for freelance</div>
+            <h1 class="hero-title">
+                <span class="line">Creative Designer</span>
+                <span class="line">& Developer</span>
+            </h1>
+            <p class="hero-subtitle">Crafting beautiful digital experiences with a blend of creativity and code</p>
+            <div class="hero-cta">
+                <button class="btn-primary">View My Work</button>
+                <button class="btn-secondary">Get In Touch</button>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Featured Work Section -->
+    <section class="featured" id="work">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Featured Projects</span>
+                <h2 class="section-title">Selected Work</h2>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web">Websites</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                <button class="filter-btn" data-filter="design">UI/UX Design</button>
+                <button class="filter-btn" data-filter="logo">Logo Design</button>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Large Project Card -->
+                <div class="bento-item large" data-project="1" data-category="ml design">
+                    <div class="bento-image gradient-1">
+                        <div class="project-overlay">
+                            <span class="project-tag">IoT • Machine Learning</span>
+                        </div>
+                    </div>
+                    <div class="bento-content">
+                        <h3>AEROSAUR Smart Purifier</h3>
+                        <p>AI-powered air purification system with predictive algorithms</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">
+                                <span>GitHub</span>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.figma.com/proto/aVluEqkcnVBAcHGLgUTtz7/aerosaur--version-2-?node-id=28-2734&starting-point-node-id=28%3A2734&show-proto-sidebar=1&t=mM1tz96wpEn4Giz7-1" class="project-link" target="_blank">
+                                <span>Figma</span>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M5.5 0A2.5 2.5 0 003 2.5v11A2.5 2.5 0 005.5 16a2.5 2.5 0 002.5-2.5V11h2.5A2.5 2.5 0 0013 8.5 2.5 2.5 0 0010.5 6H8V2.5A2.5 2.5 0 005.5 0z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wide Project Card -->
+                <div class="bento-item wide" data-project="4" data-category="design">
+                    <div class="bento-image gradient-4">
+                        <div class="project-overlay">
+                            <span class="project-tag">IoT • UI/UX • Mobile</span>
+                        </div>
+                    </div>
+                    <div class="bento-content">
+                        <h3>Smart Door IoT App</h3>
+                        <p>Mobile interface for IoT door system with camera and sensors</p>
+                        <div class="project-links">
+                            <a href="https://www.figma.com/design/01Etrrl7WZaxXxx8VWZ1GU/VeniceHCI?node-id=0-1&t=WFRYN7qQbGg4GpoG-1" class="project-link" target="_blank">
+                                <span>Figma</span>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M5.5 0A2.5 2.5 0 003 2.5v11A2.5 2.5 0 005.5 16a2.5 2.5 0 002.5-2.5V11h2.5A2.5 2.5 0 0013 8.5 2.5 2.5 0 0010.5 6H8V2.5A2.5 2.5 0 005.5 0z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LMS Project Card -->
+                <div class="bento-item medium" data-project="5" data-category="web">
+                    <div class="bento-image gradient-2">
+                        <div class="project-overlay">
+                            <span class="project-tag">Web Development • Full-Stack</span>
+                        </div>
+                    </div>
+                    <div class="bento-content">
+                        <h3>Learning Management System</h3>
+                        <p>Full-stack web application for online learning and course management</p>
+                        <div class="project-links">
+                            <a href="https://github.com/venxice/meowdules-lms" class="project-link" target="_blank">
+                                <span>GitHub</span>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                            </a>
+                            <a href="https://lms-webdev.onrender.com/login" class="project-link" target="_blank">
+                                <span>Live Site</span>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M8 0a8 8 0 100 16A8 8 0 008 0zM.5 8a7.5 7.5 0 0111.937-6.127L9.203 5.107a2.5 2.5 0 00-3.096 3.096L2.873 11.437A7.488 7.488 0 01.5 8zm14.437-.127L11.703 10.893a2.5 2.5 0 01-3.096 3.096l-3.234 3.234A7.5 7.5 0 0014.937 7.873z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content-centered">
+                <span class="section-label">About Me</span>
+                <h2 class="section-title">Designing experiences that inspire and engage</h2>
+                <p class="about-description">Hi! I'm Venice Don, a creative designer and developer passionate about crafting beautiful digital experiences. With a keen eye for detail and a love for clean code, I bring ideas to life through thoughtful design and modern technology.</p>
+                <p class="about-description">I specialize in full-stack development and design, working with modern technologies to create seamless user experiences across web and mobile platforms.</p>
+
+                <a href="#" class="btn-resume" download>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download Resume
+                </a>
+
+                <div class="about-content-wrapper">
+
+                <div class="skills-section">
+                    <h3>What I Do</h3>
+                    <div class="skill-cards">
+                        <div class="skill-card">
+                            <div class="skill-icon">🎨</div>
+                            <h4>UI/UX Design</h4>
+                            <p>Creating intuitive interfaces</p>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">💻</div>
+                            <h4>Full-Stack Development</h4>
+                            <p>Building with modern tech</p>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">✨</div>
+                            <h4>3D Design & Branding</h4>
+                            <p>Crafting visual identities</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tools-section">
+                    <h3>Tools & Technologies</h3>
+                    <div class="tool-tags">
+                        <span class="tool-tag">Java</span>
+                        <span class="tool-tag">JavaScript</span>
+                        <span class="tool-tag">Python</span>
+                        <span class="tool-tag">HTML/CSS</span>
+                        <span class="tool-tag">Node.js</span>
+                        <span class="tool-tag">Express</span>
+                        <span class="tool-tag">Laravel</span>
+                        <span class="tool-tag">Flutter</span>
+                        <span class="tool-tag">Figma</span>
+                        <span class="tool-tag">Blender</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-text">
+                    <span class="section-label">Get In Touch</span>
+                    <h2 class="section-title">Let's create something amazing together</h2>
+                    <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+
+                    <div class="contact-methods">
+                        <a href="mailto:venicedon17@gmail.com" class="contact-method">
+                            <div class="method-icon">📧</div>
+                            <div class="method-content">
+                                <h4>Email</h4>
+                                <p>venicedon17@gmail.com</p>
+                            </div>
+                        </a>
+                        <div class="contact-method">
+                            <div class="method-icon">🌐</div>
+                            <div class="method-content">
+                                <h4>Social</h4>
+                                <div class="social-links">
+                                    <a href="https://instagram.com/venicedon" target="_blank">Instagram</a>
+                                    <a href="#">LinkedIn</a>
+                                    <a href="#">Behance</a>
+                                    <a href="https://github.com/venxice" target="_blank">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="f844f45c-d143-406b-aab5-1fa759d7c540">
+                        <input type="hidden" name="subject" value="New Contact from Portfolio Website">
+                        <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea id="message" name="message" placeholder="Tell me about your project..." rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+                    <div id="form-success" class="form-message success" style="display: none;">
+                        <p>✨ Message sent successfully! I'll get back to you soon.</p>
+                    </div>
+                    <div id="form-error" class="form-message error" style="display: none;">
+                        <p>Oops! Something went wrong. Please try again.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">Venice Don.</div>
+                    <p>Creative Designer & Full-Stack Developer</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#work">Work</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://instagram.com/venicedon" target="_blank">Instagram</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Behance</a>
+                    <a href="https://github.com/venxice" target="_blank">GitHub</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Venice Don. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">✕</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Project Title</h2>
+                <div class="modal-tags">
+                    <span>Tag 1</span>
+                    <span>Tag 2</span>
+                </div>
+            </div>
+            <div class="modal-image gradient-1"></div>
+            <div class="modal-body">
+                <p class="modal-description">Project description goes here...</p>
+                <div class="modal-links"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
