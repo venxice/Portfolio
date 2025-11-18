@@ -1589,21 +1589,65 @@ body {
     }
 
     .modal-content {
-        padding: 20px;
+        padding: 30px 20px;
         max-width: 95%;
         margin: 20px;
+        width: calc(100% - 40px);
+    }
+
+    .modal-close {
+        top: 15px;
+        right: 15px;
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+    }
+
+    .modal-header {
+        margin-bottom: 20px;
     }
 
     .modal-title {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+        line-height: 1.3;
+        margin-bottom: 12px;
+    }
+
+    .modal-tags {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .modal-tags span {
+        padding: 5px 12px;
+        font-size: 0.8rem;
     }
 
     .modal-image {
-        height: 250px;
+        height: 200px;
+        margin-bottom: 20px;
+    }
+
+    .modal-body {
+        padding: 0;
     }
 
     .modal-description {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .modal-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .modal-links .btn-primary {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 20px;
+        font-size: 0.9rem;
     }
 
     .scroll-indicator {
