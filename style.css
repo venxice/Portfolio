@@ -1,31 +1,31 @@
 /* ===== MODERN PORTFOLIO CSS ===== */
 
 :root {
-    --primary: #ff6b9d;
-    --secondary: #c471f5;
-    --accent: #ffa8d5;
-    --text: #2d1b3d;
-    --text-light: #8b7a99;
-    --bg: #fff5fa;
-    --bg-light: #ffe8f7;
-    --border: #ffd4ea;
-    --gradient-1: linear-gradient(135deg, #ff6b9d 0%, #c471f5 100%);
-    --gradient-2: linear-gradient(135deg, #ffa8d5 0%, #ff6b9d 100%);
-    --gradient-3: linear-gradient(135deg, #ffc8dd 0%, #ffafcc 100%);
-    --gradient-4: linear-gradient(135deg, #e7c6ff 0%, #c8b6ff 100%);
-    --gradient-5: linear-gradient(135deg, #ffd4ea 0%, #ffb5e8 100%);
-    --gradient-6: linear-gradient(135deg, #ff9ebb 0%, #c471f5 100%);
+    --primary: #000000;
+    --secondary: #6366f1;
+    --accent: #a855f7;
+    --text: #1f2937;
+    --text-light: #6b7280;
+    --bg: #ffffff;
+    --bg-light: #f9fafb;
+    --border: #e5e7eb;
+    --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    --gradient-5: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    --gradient-6: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
 }
 
 [data-theme="dark"] {
-    --primary: #ff9ebb;
-    --secondary: #d8a4ff;
-    --accent: #ffb5e8;
-    --text: #ffe8f7;
-    --text-light: #ffc8dd;
-    --bg: #2d1b3d;
-    --bg-light: #3d2550;
-    --border: #664a7a;
+    --primary: #6366f1;
+    --secondary: #818cf8;
+    --accent: #a78bfa;
+    --text: #f8fafc;
+    --text-light: #e2e8f0;
+    --bg: #0f172a;
+    --bg-light: #1e293b;
+    --border: #475569;
 }
 
 * {
