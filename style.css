@@ -1178,6 +1178,60 @@ body {
     height: 400px;
     border-radius: 15px;
     margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-image.has-gallery {
+    background-repeat: no-repeat;
+    transition: opacity 0.3s ease;
+}
+
+/* Gallery Navigation */
+.gallery-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    border-radius: 50px;
+    z-index: 10;
+}
+
+.gallery-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: white;
+}
+
+.gallery-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.gallery-btn:active {
+    transform: scale(0.95);
+}
+
+.gallery-indicator {
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    min-width: 60px;
+    text-align: center;
 }
 
 .modal-description {

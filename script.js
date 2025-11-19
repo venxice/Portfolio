@@ -160,6 +160,11 @@ const projectData = {
         tags: ['IoT', 'Machine Learning', 'Python', 'Arduino'],
         description: 'An AI-powered air purification system featuring machine learning algorithms that automatically adjust fan speed based on environmental conditions. The system uses Random Forest classification to predict optimal settings, creating a truly smart home automation solution.',
         gradient: 'gradient-1',
+        images: [
+            // Add your image paths here (max 10)
+            // 'assets/images/aerosaur-1.jpg',
+            // 'assets/images/aerosaur-2.jpg',
+        ],
         links: {
             github: '#',
             figma: 'https://www.figma.com/proto/aVluEqkcnVBAcHGLgUTtz7/aerosaur--version-2-?node-id=28-2734&starting-point-node-id=28%3A2734&show-proto-sidebar=1&t=mM1tz96wpEn4Giz7-1',
@@ -170,6 +175,10 @@ const projectData = {
         tags: ['IoT', 'UI/UX', 'Mobile', 'Smart Home'],
         description: 'Mobile application interface for an IoT-enabled smart door system. Features real-time camera monitoring, sensor data visualization, remote access control, and security notifications for seamless home automation.',
         gradient: 'gradient-4',
+        images: [
+            // Add your image paths here (max 10)
+            // 'assets/images/smartdoor-1.jpg',
+        ],
         links: {
             figma: 'https://www.figma.com/design/01Etrrl7WZaxXxx8VWZ1GU/VeniceHCI?node-id=0-1&t=WFRYN7qQbGg4GpoG-1',
         }
@@ -179,6 +188,10 @@ const projectData = {
         tags: ['Web Development', 'Full-Stack', 'Node.js', 'Education'],
         description: 'A comprehensive Learning Management System built for online education. Features include course management, student enrollment, assignment tracking, grade management, and interactive learning modules. Built with modern web technologies to provide a seamless learning experience.',
         gradient: 'gradient-2',
+        images: [
+            // Add your image paths here (max 10)
+            // 'assets/images/lms-1.jpg',
+        ],
         links: {
             github: 'https://github.com/venxice/meowdules-lms',
             live: 'https://lms-webdev.onrender.com/login',
@@ -186,14 +199,39 @@ const projectData = {
     }
 };
 
+let currentImageIndex = 0;
+let currentProjectImages = [];
+
 function openProjectModal(projectId) {
     const data = projectData[projectId];
     if (!data) return;
 
+    // Reset image gallery
+    currentImageIndex = 0;
+    currentProjectImages = data.images || [];
+
     // Update modal content
     document.querySelector('.modal-title').textContent = data.title;
     document.querySelector('.modal-description').textContent = data.description;
-    document.querySelector('.modal-image').className = `modal-image ${data.gradient}`;
+
+    // Update modal image or gradient
+    const modalImageContainer = document.querySelector('.modal-image');
+    if (currentProjectImages.length > 0) {
+        modalImageContainer.className = 'modal-image has-gallery';
+        modalImageContainer.style.backgroundImage = `url('${currentProjectImages[0]}')`;
+        modalImageContainer.style.backgroundSize = 'cover';
+        modalImageContainer.style.backgroundPosition = 'center';
+
+        // Add gallery navigation
+        updateGalleryNavigation();
+    } else {
+        modalImageContainer.className = `modal-image ${data.gradient}`;
+        modalImageContainer.style.backgroundImage = '';
+
+        // Remove gallery navigation
+        const existingNav = modalImageContainer.querySelector('.gallery-nav');
+        if (existingNav) existingNav.remove();
+    }
 
     // Update tags
     const tagsContainer = document.querySelector('.modal-tags');
@@ -247,13 +285,83 @@ function closeProjectModal() {
     document.body.style.overflow = '';
 }
 
+// Gallery navigation functions
+function updateGalleryNavigation() {
+    const modalImageContainer = document.querySelector('.modal-image');
+
+    // Remove existing navigation if any
+    const existingNav = modalImageContainer.querySelector('.gallery-nav');
+    if (existingNav) existingNav.remove();
+
+    // Only show navigation if there are multiple images
+    if (currentProjectImages.length <= 1) return;
+
+    // Create navigation elements
+    const navHTML = `
+        <div class="gallery-nav">
+            <button class="gallery-btn gallery-prev" aria-label="Previous image">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <div class="gallery-indicator">
+                <span class="current-image">${currentImageIndex + 1}</span> / ${currentProjectImages.length}
+            </div>
+            <button class="gallery-btn gallery-next" aria-label="Next image">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+    `;
+
+    modalImageContainer.insertAdjacentHTML('beforeend', navHTML);
+
+    // Add event listeners
+    modalImageContainer.querySelector('.gallery-prev').addEventListener('click', (e) => {
+        e.stopPropagation();
+        navigateGallery('prev');
+    });
+
+    modalImageContainer.querySelector('.gallery-next').addEventListener('click', (e) => {
+        e.stopPropagation();
+        navigateGallery('next');
+    });
+}
+
+function navigateGallery(direction) {
+    if (currentProjectImages.length === 0) return;
+
+    if (direction === 'prev') {
+        currentImageIndex = (currentImageIndex - 1 + currentProjectImages.length) % currentProjectImages.length;
+    } else {
+        currentImageIndex = (currentImageIndex + 1) % currentProjectImages.length;
+    }
+
+    // Update image
+    const modalImageContainer = document.querySelector('.modal-image');
+    modalImageContainer.style.backgroundImage = `url('${currentProjectImages[currentImageIndex]}')`;
+
+    // Update indicator
+    const indicator = modalImageContainer.querySelector('.current-image');
+    if (indicator) {
+        indicator.textContent = currentImageIndex + 1;
+    }
+}
+
 modalClose.addEventListener('click', closeProjectModal);
 modalOverlay.addEventListener('click', closeProjectModal);
 
-// Close modal on ESC key
+// Close modal on ESC key, navigate gallery with arrow keys
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-        closeProjectModal();
+    if (modal.classList.contains('active')) {
+        if (e.key === 'Escape') {
+            closeProjectModal();
+        } else if (e.key === 'ArrowLeft') {
+            navigateGallery('prev');
+        } else if (e.key === 'ArrowRight') {
+            navigateGallery('next');
+        }
     }
 });
 
