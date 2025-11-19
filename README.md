@@ -58,7 +58,7 @@
    php -S localhost:8000
    ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 portfolio/
@@ -116,7 +116,7 @@ portfolio/
 
 4. **Meta Tags** - Update SEO information in `index.html` head section
 
-## 📱 Browser Support
+## Browser Support
 
 - Chrome (latest)
 - Firefox (latest)
@@ -124,7 +124,7 @@ portfolio/
 - Edge (latest)
 - Mobile browsers (iOS Safari, Chrome Mobile)
 
-## ♿ Accessibility Features
+## Accessibility Features
 
 - Semantic HTML structure
 - ARIA labels and roles
@@ -157,7 +157,7 @@ vercel
 3. Select branch and folder
 4. Save and wait for deployment
 
-## 📊 Performance
+## Performance
 
 - Lighthouse Score: 95+ (Performance, Accessibility, Best Practices, SEO)
 - First Contentful Paint: < 1.5s
