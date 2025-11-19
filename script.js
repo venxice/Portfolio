@@ -521,3 +521,270 @@ themeToggle.addEventListener('click', () => {
     htmlElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
 });
+
+// ===== RESUME DOWNLOAD IN HARVARD FORMAT =====
+
+// Resume data structure
+const resumeData = {
+    name: 'VENICE DON',
+    contact: {
+        email: 'venicedon17@gmail.com',
+        github: 'github.com/venxice',
+        instagram: '@venicedon',
+        location: 'Available for Remote Work'
+    },
+    summary: 'Creative Designer and Full-Stack Developer with expertise in UI/UX design, web development, and IoT solutions. Passionate about crafting beautiful digital experiences through thoughtful design and modern technology. Skilled in building end-to-end applications with focus on user experience and innovative problem-solving.',
+    education: [
+        {
+            degree: 'Bachelor of Science in Computer Science',
+            institution: 'University Name',
+            year: '2020 - 2024',
+            details: 'Focus on Software Engineering and Human-Computer Interaction'
+        }
+    ],
+    experience: [
+        {
+            title: 'Full-Stack Developer & UI/UX Designer',
+            company: 'Freelance',
+            period: '2022 - Present',
+            responsibilities: [
+                'Designed and developed responsive web applications using modern JavaScript frameworks',
+                'Created intuitive user interfaces with focus on accessibility and user experience',
+                'Collaborated with clients to translate business requirements into technical solutions',
+                'Implemented full-stack solutions using Node.js, Express, and various databases'
+            ]
+        }
+    ],
+    projects: [
+        {
+            name: 'AEROSAUR Smart Purifier',
+            description: 'AI-powered air purification system with predictive algorithms using Random Forest classification',
+            technologies: 'Python, Arduino, Machine Learning, IoT'
+        },
+        {
+            name: 'Learning Management System',
+            description: 'Full-stack web application for online learning with course management and student tracking',
+            technologies: 'Node.js, Express, JavaScript, HTML/CSS'
+        },
+        {
+            name: 'Smart Door IoT App',
+            description: 'Mobile interface for IoT door system with real-time monitoring and remote access control',
+            technologies: 'UI/UX Design, Figma, Mobile Development'
+        }
+    ],
+    skills: {
+        'Programming Languages': ['Java', 'JavaScript', 'Python', 'HTML/CSS'],
+        'Frameworks & Tools': ['Node.js', 'Express', 'Laravel', 'Flutter'],
+        'Design & Creative': ['Figma', 'Blender', 'UI/UX Design', '3D Design'],
+        'Technical': ['Full-Stack Development', 'Machine Learning', 'IoT Development', 'Responsive Design']
+    }
+};
+
+function generateHarvardResume() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    let yPos = 20;
+    const margin = 20;
+    const pageWidth = doc.internal.pageSize.width;
+    const contentWidth = pageWidth - (2 * margin);
+
+    // Helper function to check page overflow
+    function checkPageOverflow(requiredSpace) {
+        if (yPos + requiredSpace > 280) {
+            doc.addPage();
+            yPos = 20;
+        }
+    }
+
+    // HEADER - Name (Harvard style: centered, bold, all caps)
+    doc.setFontSize(18);
+    doc.setFont('helvetica', 'bold');
+    const nameWidth = doc.getTextWidth(resumeData.name);
+    doc.text(resumeData.name, (pageWidth - nameWidth) / 2, yPos);
+    yPos += 8;
+
+    // Contact Information (Harvard style: centered, smaller font)
+    doc.setFontSize(9);
+    doc.setFont('helvetica', 'normal');
+    const contactLine = `${resumeData.contact.email} | ${resumeData.contact.github} | ${resumeData.contact.instagram}`;
+    const contactWidth = doc.getTextWidth(contactLine);
+    doc.text(contactLine, (pageWidth - contactWidth) / 2, yPos);
+    yPos += 4;
+
+    const locationWidth = doc.getTextWidth(resumeData.contact.location);
+    doc.text(resumeData.contact.location, (pageWidth - locationWidth) / 2, yPos);
+    yPos += 10;
+
+    // Horizontal line separator
+    doc.setLineWidth(0.5);
+    doc.line(margin, yPos, pageWidth - margin, yPos);
+    yPos += 8;
+
+    // SUMMARY (Harvard style: brief, centered section)
+    checkPageOverflow(30);
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'bold');
+    const summaryTitleWidth = doc.getTextWidth('PROFESSIONAL SUMMARY');
+    doc.text('PROFESSIONAL SUMMARY', (pageWidth - summaryTitleWidth) / 2, yPos);
+    yPos += 6;
+
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    const summaryLines = doc.splitTextToSize(resumeData.summary, contentWidth);
+    doc.text(summaryLines, margin, yPos);
+    yPos += summaryLines.length * 5 + 8;
+
+    // EDUCATION (Harvard style: institution name in bold, details follow)
+    checkPageOverflow(30);
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'bold');
+    doc.text('EDUCATION', margin, yPos);
+    yPos += 6;
+
+    resumeData.education.forEach(edu => {
+        checkPageOverflow(20);
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'bold');
+        doc.text(edu.institution, margin, yPos);
+
+        doc.setFont('helvetica', 'normal');
+        const yearWidth = doc.getTextWidth(edu.year);
+        doc.text(edu.year, pageWidth - margin - yearWidth, yPos);
+        yPos += 5;
+
+        doc.setFont('helvetica', 'italic');
+        doc.text(edu.degree, margin, yPos);
+        yPos += 5;
+
+        if (edu.details) {
+            doc.setFont('helvetica', 'normal');
+            doc.text(edu.details, margin, yPos);
+            yPos += 8;
+        }
+    });
+
+    // EXPERIENCE
+    checkPageOverflow(30);
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'bold');
+    doc.text('PROFESSIONAL EXPERIENCE', margin, yPos);
+    yPos += 6;
+
+    resumeData.experience.forEach(exp => {
+        checkPageOverflow(40);
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'bold');
+        doc.text(exp.title, margin, yPos);
+
+        doc.setFont('helvetica', 'normal');
+        const periodWidth = doc.getTextWidth(exp.period);
+        doc.text(exp.period, pageWidth - margin - periodWidth, yPos);
+        yPos += 5;
+
+        doc.setFont('helvetica', 'italic');
+        doc.text(exp.company, margin, yPos);
+        yPos += 6;
+
+        doc.setFont('helvetica', 'normal');
+        exp.responsibilities.forEach(resp => {
+            checkPageOverflow(15);
+            const bulletLines = doc.splitTextToSize('• ' + resp, contentWidth - 5);
+            doc.text(bulletLines, margin + 2, yPos);
+            yPos += bulletLines.length * 5;
+        });
+        yPos += 3;
+    });
+
+    // PROJECTS
+    checkPageOverflow(30);
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'bold');
+    doc.text('SELECTED PROJECTS', margin, yPos);
+    yPos += 6;
+
+    resumeData.projects.forEach(project => {
+        checkPageOverflow(25);
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'bold');
+        doc.text(project.name, margin, yPos);
+        yPos += 5;
+
+        doc.setFont('helvetica', 'normal');
+        const descLines = doc.splitTextToSize(project.description, contentWidth - 5);
+        doc.text(descLines, margin + 2, yPos);
+        yPos += descLines.length * 5;
+
+        doc.setFont('helvetica', 'italic');
+        doc.setFontSize(9);
+        doc.text('Technologies: ' + project.technologies, margin + 2, yPos);
+        yPos += 7;
+    });
+
+    // SKILLS
+    checkPageOverflow(30);
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'bold');
+    doc.text('TECHNICAL SKILLS', margin, yPos);
+    yPos += 6;
+
+    Object.entries(resumeData.skills).forEach(([category, skills]) => {
+        checkPageOverflow(15);
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'bold');
+        doc.text(category + ':', margin, yPos);
+        yPos += 5;
+
+        doc.setFont('helvetica', 'normal');
+        const skillsText = skills.join(', ');
+        const skillLines = doc.splitTextToSize(skillsText, contentWidth - 5);
+        doc.text(skillLines, margin + 2, yPos);
+        yPos += skillLines.length * 5 + 3;
+    });
+
+    // Footer (Harvard style: simple, professional)
+    doc.setFontSize(8);
+    doc.setFont('helvetica', 'italic');
+    const footerText = 'References available upon request';
+    const footerWidth = doc.getTextWidth(footerText);
+    doc.text(footerText, (pageWidth - footerWidth) / 2, 285);
+
+    // Save the PDF
+    doc.save('Venice_Don_Resume.pdf');
+}
+
+// Initialize resume download button
+window.addEventListener('load', function() {
+    const resumeBtn = document.getElementById('downloadResumeBtn');
+
+    if (resumeBtn) {
+        console.log('Resume button found, attaching event listener...');
+
+        resumeBtn.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            console.log('Resume button clicked');
+            console.log('jsPDF available:', typeof window.jspdf);
+
+            if (typeof window.jspdf !== 'undefined') {
+                try {
+                    generateHarvardResume();
+                    console.log('Resume generated successfully');
+                } catch (error) {
+                    console.error('Error generating resume:', error);
+                    alert('Error generating resume: ' + error.message);
+                }
+            } else {
+                alert('Resume generator is loading. Please wait a moment and try again.');
+                console.error('jsPDF library not loaded');
+            }
+
+            return false;
+        };
+
+        console.log('Resume button event listener attached successfully');
+    } else {
+        console.error('Resume button not found!');
+    }
+});
