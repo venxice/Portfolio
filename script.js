@@ -212,15 +212,15 @@ function openProjectModal(projectId) {
         const linkTypes = {
             live: {
                 text: 'View Live Site',
-                icon: '<svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" style="display: inline-block; vertical-align: middle;"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zM.5 8a7.5 7.5 0 0111.937-6.127L9.203 5.107a2.5 2.5 0 00-3.096 3.096L2.873 11.437A7.488 7.488 0 01.5 8zm14.437-.127L11.703 10.893a2.5 2.5 0 01-3.096 3.096l-3.234 3.234A7.5 7.5 0 0014.937 7.873z"/></svg>'
+                icon: '<svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zM.5 8a7.5 7.5 0 0111.937-6.127L9.203 5.107a2.5 2.5 0 00-3.096 3.096L2.873 11.437A7.488 7.488 0 01.5 8zm14.437-.127L11.703 10.893a2.5 2.5 0 01-3.096 3.096l-3.234 3.234A7.5 7.5 0 0014.937 7.873z"/></svg>'
             },
             github: {
                 text: 'View on GitHub',
-                icon: '<svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" style="display: inline-block; vertical-align: middle;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>'
+                icon: '<svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>'
             },
             figma: {
                 text: 'View Design',
-                icon: '<svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" style="display: inline-block; vertical-align: middle; text-decoration: none;"><path d="M5.5 0A2.5 2.5 0 003 2.5v11A2.5 2.5 0 005.5 16a2.5 2.5 0 002.5-2.5V11h2.5A2.5 2.5 0 0013 8.5 2.5 2.5 0 0010.5 6H8V2.5A2.5 2.5 0 005.5 0z"/></svg>'
+                icon: '<svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 0A2.5 2.5 0 003 2.5v11A2.5 2.5 0 005.5 16a2.5 2.5 0 002.5-2.5V11h2.5A2.5 2.5 0 0013 8.5 2.5 2.5 0 0010.5 6H8V2.5A2.5 2.5 0 005.5 0z"/></svg>'
             }
         };
 
@@ -231,7 +231,7 @@ function openProjectModal(projectId) {
                 linkBtn.href = url;
                 linkBtn.target = '_blank';
                 linkBtn.className = 'btn-primary';
-                linkBtn.innerHTML = `${linkTypes[linkType].icon} ${linkTypes[linkType].text} →`;
+                linkBtn.innerHTML = `${linkTypes[linkType].icon}<span>${linkTypes[linkType].text} →</span>`;
                 linksContainer.appendChild(linkBtn);
             }
         });

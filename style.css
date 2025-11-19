@@ -409,6 +409,9 @@ body {
     cursor: pointer;
     transition: all 0.3s;
     font-family: 'Inter', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .btn-primary:hover {
@@ -1192,6 +1195,12 @@ body {
 .modal-links .btn-primary {
     margin: 0;
     text-decoration: none;
+}
+
+.modal-links .btn-primary svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
 }
 
 /* ===== ANIMATIONS ===== */
