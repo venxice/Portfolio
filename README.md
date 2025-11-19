@@ -1,11 +1,11 @@
-# 🎨 Venice Don - Creative Portfolio
+# Venice Don - Portfolio
 
 > A modern, responsive portfolio website showcasing creative design and full-stack development skills with smooth animations and interactive elements.
 
 [![Live Demo](https://img.shields.io/badge/demo-live-success)](https://venicedon.netlify.app)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-## ✨ Features
+## Features
 
 ### Core Functionality
 - **Responsive Design** - Fully responsive across all devices (mobile, tablet, desktop)
@@ -23,7 +23,7 @@
 - **SEO Optimized** - Complete meta tags, Open Graph, and Twitter Cards
 - **Performance** - Optimized loading with DNS prefetch and preconnect
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Modern web browser (Chrome, Firefox, Safari, Edge)
@@ -71,7 +71,7 @@ portfolio/
 └── SETUP.md               # Setup instructions
 ```
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 ### Frontend
 - **HTML5** - Semantic markup
@@ -87,7 +87,7 @@ portfolio/
 - **Git** - Version control
 - **Netlify** - Deployment and hosting
 
-## 🎨 Customization
+## Customization
 
 ### Update Personal Information
 
@@ -134,7 +134,7 @@ portfolio/
 - High contrast ratios for text
 - Focus indicators for interactive elements
 
-## 🚀 Deployment
+## Deployment
 
 ### Deploy to Netlify
 
@@ -164,18 +164,18 @@ vercel
 - Time to Interactive: < 3s
 - No render-blocking resources
 
-## 🔒 Security
+## Security
 
 - No sensitive data in frontend code
 - Contact form uses secure API
 - External links use `rel="noopener noreferrer"`
 - No inline JavaScript (CSP-friendly)
 
-## 📝 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 👤 Author
+## Author
 
 **Venice Don**
 - Portfolio: [venicedon.netlify.app](https://venicedon.netlify.app)
@@ -183,21 +183,14 @@ This project is open source and available under the [MIT License](LICENSE).
 - Email: venicedon17@gmail.com
 - Instagram: [@venicedon](https://instagram.com/venicedon)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Design inspiration from modern portfolio trends
 - Icons from Heroicons/Feather Icons
 - Fonts from Google Fonts
 - Color gradients inspired by uiGradients
 
-## 🤝 Contributing
+## Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/venxice/portfolio/issues).
 
-## ⭐ Show your support
-
-Give a ⭐️ if you like this project!
-
----
-
-Made with ❤️ and ☕ by Venice Don
