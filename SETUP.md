@@ -62,4 +62,3 @@ Once setup is complete, deploy to:
 - **Vercel** - Free, great performance
 - **GitHub Pages** - Free hosting from your GitHub repo
 
-Good luck! 🚀
