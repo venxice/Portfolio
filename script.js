@@ -1,4 +1,23 @@
-// ===== MODERN PORTFOLIO JAVASCRIPT =====
+/**
+ * ==========================================
+ * VENICE DON - CREATIVE PORTFOLIO
+ * ==========================================
+ *
+ * @file Main JavaScript functionality for portfolio website
+ * @author Venice Don
+ * @version 1.0.0
+ * @description Interactive features including:
+ *   - Project filtering and modal views
+ *   - Smooth scroll animations
+ *   - Dark mode toggle
+ *   - Contact form validation and submission
+ *   - Resume PDF generation
+ *   - Mobile menu functionality
+ *
+ * @license MIT
+ */
+
+'use strict';
 
 // ===== SCROLL TO TOP ON PAGE LOAD =====
 if (history.scrollRestoration) {
@@ -238,10 +257,45 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// ===== FORM SUBMISSION =====
+// ===== FORM SUBMISSION WITH VALIDATION =====
 const contactForm = document.querySelector('.contact-form');
 const formSuccess = document.getElementById('form-success');
 const formError = document.getElementById('form-error');
+
+/**
+ * Validates email format
+ * @param {string} email - Email address to validate
+ * @returns {boolean} - True if valid email format
+ */
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+/**
+ * Validates form inputs
+ * @param {FormData} formData - Form data to validate
+ * @returns {Object} - Validation result with isValid flag and error message
+ */
+function validateForm(formData) {
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const message = formData.get('message');
+
+    if (!name || name.trim().length < 2) {
+        return { isValid: false, error: 'Please enter a valid name (minimum 2 characters).' };
+    }
+
+    if (!email || !isValidEmail(email)) {
+        return { isValid: false, error: 'Please enter a valid email address.' };
+    }
+
+    if (!message || message.trim().length < 10) {
+        return { isValid: false, error: 'Please enter a message (minimum 10 characters).' };
+    }
+
+    return { isValid: true };
+}
 
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -249,12 +303,31 @@ contactForm.addEventListener('submit', async (e) => {
     // Get form data
     const formData = new FormData(contactForm);
 
+    // Validate form
+    const validation = validateForm(formData);
+    if (!validation.isValid) {
+        formError.textContent = validation.error;
+        formError.style.display = 'block';
+        formSuccess.style.display = 'none';
+        return;
+    }
+
+    // Disable submit button to prevent double submission
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
     try {
         // Submit to Web3Forms
         const response = await fetch('https://api.web3forms.com/submit', {
             method: 'POST',
             body: formData
         });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
 
         const data = await response.json();
 
@@ -274,14 +347,18 @@ contactForm.addEventListener('submit', async (e) => {
                 formSuccess.style.display = 'none';
             }, 5000);
         } else {
-            // Show error message
-            formError.style.display = 'block';
-            formSuccess.style.display = 'none';
+            throw new Error(data.message || 'Form submission failed');
         }
     } catch (error) {
+        console.error('Form submission error:', error);
         // Show error message
+        formError.textContent = `Error: ${error.message}. Please try again or email me directly at venicedon17@gmail.com`;
         formError.style.display = 'block';
         formSuccess.style.display = 'none';
+    } finally {
+        // Re-enable submit button
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
     }
 });
 
@@ -471,9 +548,26 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ===== CONSOLE MESSAGE =====
-console.log('%c🎨 Welcome to my portfolio! ', 'color: #6366f1; font-size: 24px; font-weight: bold;');
-console.log('%cBuilt with modern web technologies ✨', 'color: #a855f7; font-size: 14px;');
-console.log('%cInterested in working together? Let\'s talk!', 'color: #000; font-size: 12px;');
+console.log(
+    '%c🎨 Venice Don - Creative Portfolio',
+    'color: #6366f1; font-size: 20px; font-weight: bold; padding: 10px 0;'
+);
+console.log(
+    '%c💻 Built with: Vanilla JS • Modern CSS • Semantic HTML5',
+    'color: #a855f7; font-size: 12px; font-weight: 600;'
+);
+console.log(
+    '%c✨ Features: Dark Mode • PDF Resume • Form Validation • Smooth Animations',
+    'color: #6b7280; font-size: 11px;'
+);
+console.log(
+    '%c📬 Interested in working together? venicedon17@gmail.com',
+    'color: #000; font-size: 12px; font-weight: 600; padding: 5px 0;'
+);
+console.log(
+    '%c⭐ Check out the code: github.com/venxice/portfolio',
+    'color: #6b7280; font-size: 11px;'
+);
 
 // ===== LOADING ANIMATION (Optional) =====
 window.addEventListener('load', () => {
@@ -517,9 +611,14 @@ htmlElement.setAttribute('data-theme', currentTheme);
 themeToggle.addEventListener('click', () => {
     const currentTheme = htmlElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    const isDark = newTheme === 'dark';
 
     htmlElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
+
+    // Update ARIA attribute for accessibility
+    themeToggle.setAttribute('aria-pressed', isDark);
+    themeToggle.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
 });
 
 // ===== RESUME DOWNLOAD IN HARVARD FORMAT =====

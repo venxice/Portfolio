@@ -3,23 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venice Don - Creative Portfolio</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Primary Meta Tags -->
+    <title>Venice Don - Creative Designer & Full-Stack Developer</title>
+    <meta name="title" content="Venice Don - Creative Designer & Full-Stack Developer">
+    <meta name="description" content="Creative Designer and Full-Stack Developer specializing in UI/UX design, web development, and IoT solutions. Crafting beautiful digital experiences with modern technology.">
+    <meta name="keywords" content="Venice Don, Web Developer, UI/UX Designer, Full-Stack Developer, Creative Designer, Portfolio, JavaScript, Python, React, Node.js">
+    <meta name="author" content="Venice Don">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://venicedon.netlify.app/">
+    <meta property="og:title" content="Venice Don - Creative Designer & Full-Stack Developer">
+    <meta property="og:description" content="Creative Designer and Full-Stack Developer specializing in UI/UX design, web development, and IoT solutions.">
+    <meta property="og:image" content="https://venicedon.netlify.app/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://venicedon.netlify.app/">
+    <meta property="twitter:title" content="Venice Don - Creative Designer & Full-Stack Developer">
+    <meta property="twitter:description" content="Creative Designer and Full-Stack Developer specializing in UI/UX design, web development, and IoT solutions.">
+    <meta property="twitter:image" content="https://venicedon.netlify.app/assets/images/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Performance: DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://api.web3forms.com">
 </head>
 <body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-logo">Venice Don.</div>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-logo" role="img" aria-label="Venice Don Logo">Venice Don.</div>
         <div class="nav-links">
             <a href="#work" class="nav-link">Work</a>
             <a href="#about" class="nav-link">About</a>
             <a href="#contact" class="nav-link">Contact</a>
         </div>
         <div class="nav-cta">
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
                 <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="5"></circle>
                     <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -51,14 +89,16 @@
         <a href="#contact" class="mobile-menu-link">Get In Touch</a>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">Available for freelance</div>
-            <h1 class="hero-title">
-                <span class="line">Creative Designer</span>
-                <span class="line">& Developer</span>
-            </h1>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" aria-label="Hero section">
+            <div class="hero-content">
+                <div class="hero-badge">Available for freelance</div>
+                <h1 class="hero-title">
+                    <span class="line">Creative Designer</span>
+                    <span class="line">& Developer</span>
+                </h1>
             <p class="hero-subtitle">Crafting beautiful digital experiences with a blend of creativity and code</p>
             <div class="hero-cta">
                 <button class="btn-primary">View My Work</button>
@@ -295,24 +335,27 @@
         </div>
     </section>
 
+    </main>
+    <!-- End Main Content -->
+
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-left">
-                    <div class="footer-logo">Venice Don.</div>
+                    <div class="footer-logo" role="img" aria-label="Venice Don Logo">Venice Don.</div>
                     <p>Creative Designer & Full-Stack Developer</p>
                 </div>
-                <div class="footer-links">
+                <nav class="footer-links" aria-label="Footer navigation">
                     <a href="#work">Work</a>
                     <a href="#about">About</a>
                     <a href="#contact">Contact</a>
-                </div>
-                <div class="footer-social">
-                    <a href="https://instagram.com/venicedon" target="_blank">Instagram</a>
-                    <a href="#">LinkedIn</a>
-                    <a href="#">Behance</a>
-                    <a href="https://github.com/venxice" target="_blank">GitHub</a>
+                </nav>
+                <div class="footer-social" aria-label="Social media links">
+                    <a href="https://instagram.com/venicedon" target="_blank" rel="noopener noreferrer" aria-label="Visit my Instagram">Instagram</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn">LinkedIn</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Visit my Behance">Behance</a>
+                    <a href="https://github.com/venxice" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub">GitHub</a>
                 </div>
             </div>
             <div class="footer-bottom">
